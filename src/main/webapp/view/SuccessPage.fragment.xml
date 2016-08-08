@@ -1,0 +1,27 @@
+<core:FragmentDefinition height="100%"
+	xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core" xmlns="sap.m">
+	<Page id="successPage">
+		<customHeader>
+			<Bar>
+				<contentLeft>
+					<Button icon="sap-icon://nav-back" press="reloadAll">
+					</Button>
+				</contentLeft>
+				<contentMiddle>
+					<Title text="Success" />
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<content>
+			<MessagePage id="successMessagePage"
+				title="Success"
+				text="Job Posting Send Successfully"
+				icon="sap-icon://message-success"
+				description="Your Job Posting is published. You can go back and create another."
+				showHeader="false"
+				showNavButton="false">
+			</MessagePage>
+		</content>
+	</Page>	
+</core:FragmentDefinition>

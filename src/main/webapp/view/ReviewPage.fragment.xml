@@ -1,0 +1,162 @@
+<core:FragmentDefinition height="100%"
+	xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core" xmlns="sap.m">
+	<Page id="wizardReviewPage">
+		<customHeader>
+			<Bar>
+				<contentLeft>
+					<Button icon="sap-icon://nav-back" press="backToWizardContent">
+					</Button>
+				</contentLeft>
+				<contentMiddle>
+					<Title text="Summary" />
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<content>
+			<f:SimpleForm title="Job Posting" editable="false" layout="ResponsiveGridLayout">
+				<f:content>
+					<Label text="Is Transaction"/>
+					<Text id="transaction" text="{/transaction}"/>
+					<Label text="Approval Required"/>
+					<Text id="approvalRequired" text="{/approvalRequired}" />
+					<Label text="Send Notification"/>
+					<Text id="sendNotification" text="{/sendNotification}"/>
+					<Label text="Language"/>
+					<Text id="language" text="{/language}"/>
+					<Label text="Number Format"/>
+					<Text id="numberFormat" text="{/numberFormat}"/>
+					<Link press="editStepOne" text="Edit" />
+				</f:content>
+			</f:SimpleForm>
+			
+			<f:SimpleForm title="Job Posting Comments" editable="false" layout="ResponsiveGridLayout">
+				<f:content>
+					<Label text="Creator Username"/>
+					<Text id="creatorUsername" text="{/comments/creatorUsername}"/>
+					<Label text="Template Name"/>
+					<Text id="templateName" text="{/comments/templateName}"/>
+					<Label text="Buyer Reference"/>
+					<Text id="buyerReference" text="{/comments/buyerReference}"/>
+					<Link press="editStepTwo" text="Edit" />
+				</f:content>
+			</f:SimpleForm>
+			
+			<f:SimpleForm title="Job Details" 
+				editable="false" 
+				layout="ResponsiveGridLayout"
+				maxContainerCols="2">
+				<f:content>
+					<Label text="Title"/>
+					<Text id="title" text="{/comments/title}"/>
+					<Label text="Number Of Positions"/>
+					<Text id="numberOfPositions" text="{/comments/numberOfPositions}"/>
+					
+					<Label text="Job Description" />
+					<Text id="jobDescription" text="{/comments/jobDescription}"/>
+					
+					<Label text="Start Date" />
+					<Text id="startDate" text="{/comments/startDate}"/>
+					<Label text="End Date" />
+			 		<Text id="endDate" text="{/comments/endDate}" />
+			 		
+					<Label text="Hours Per Week"/>
+					<Text id="hoursPerWeek" text="{/comments/hoursPerWeek}"/>
+					<Label text="Hours Per Day"/>
+					<Text id="hoursPerDay" text="{/comments/hoursPerDay}"/>
+					
+					<Label text="Travel Time" />
+					<Text id="travelTime" text="{/comments/travelTime}"/>
+					
+					<Label text="Owner Username" />
+					<Text id="ownerUsername" text="{/comments/ownerUsername}"/>
+					
+					<Label text="Coordinator Username" />
+					<Text id="coordinatorUsername" text="{/comments/coordinatorUsername}"/>
+					
+					<Label text="Distributor Username" />
+					<Text id="distributorUsername" text="{/comments/distributorUsername}"/>
+					
+					<Label text="Site Code" />
+					<Text id="siteCode" text="{/comments/SiteCode}"/>
+					<Label text="Location Code" />
+					<Text id="locationCode" text="{/comments/siteCode}"/>
+					
+					<Label text="Bussiness Unit Code" />
+					<Text id="bussinessUnitCode" text="{/comments/bussinessUnitCode}"/>
+					<Label text="Cost Center Code"/>
+					<Text id="costCenterCode" text="{/comments/costCenterCode}" />
+					
+					<Label text="Address" />
+					<Text id="address1" text="{/comments/address1}"/>
+					
+					<Label text="Address2" />
+					<Text id="address2" text="{/comments/address2}"/>
+					
+					<Label text="City/Postal Code" />
+					<Text id="city" text="{/comments/city}" />
+					<Text id="postalCode" text="{/comments/postalCode}" />
+					
+					<Label text="Country"/>
+					<Text id="country" text="{/comments/country}"/>
+					<Label text="State or Province"/>
+					<Text id="stateOrProvince" text="{/comments/stateOrProvince}"/>
+					<Link press="editStepThree" text="Edit" />
+				</f:content>
+			</f:SimpleForm>
+			
+			<f:SimpleForm title="Additional Details" editable="false" layout="ResponsiveGridLayout">
+				<f:content>
+					<Label text="Currency"/>
+					<Text id="currency" text="{/comments/currency}"/>
+					
+					<Label text="Min ST/Hr" />
+					<Text id="minStHr" text="{/comments/minStHr}"/>
+					<Label text="Max ST/Hr" />
+					<Text id="maxStHr" text="{/comments/maxStHr}" />
+					
+					<Label text="Estimated Expense Percent"/>
+					<Text id="estimatedExpensePercent" text="{/comments/estimatedExpensePercent}" />
+					<Label text="Additional Spend Percent"/>
+					<Text id="estimateAdditionalSpendPercent" text="{/comments/estimateAdditionalSpendPercent}"/>
+					
+					<Label text="Time Sheet Frequency"/>
+					<Text id="timeSheetFrequency" text="{/comments/timeSheetFrequency}"/>
+					
+					<Label text="Start Day Of Week"/>
+					<Text id="startDayOfWeek" text="{/comments/startDayOfWeek}"></Text>
+						
+					<Label text="Respond By Date"/>
+					<Text id="respondByDate" text="{/comments/respondByDate}"/>
+					
+					<Label text="Maximum Submission"/>
+					<Text id="maximumSubmission" text="{/comments/maximumSubmission}"/>
+					
+					<Label text="Flat Adjustments"/>
+					<Text id="flatAdjustments" text="{/comments/flatAdjustments}"/>
+					
+					<Label text="Comments"/>
+					<Text id="comments" text="{/comments/comments}"/>
+					
+					<Label text="JobSeeker Rate Can Be Increased"/>
+					<Text id="jobSeekerRateCanBeIncreased" text="{/comments/jobSeekerRateCanBeIncreased}"/>
+					
+					<Label text="Site Tax"/>
+					<Text id="siteTax" text="{/comments/siteTax}"/>
+					
+					<Label text="Suppliers" />
+					<Text id="suppliers" text="{/comments/suppliers}"/>
+					<Link press="editStepFour" text="Edit" />
+				</f:content>
+			</f:SimpleForm>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button text="Submit" press="handleWizardSubmit"></Button>
+					<Button text="Cancel" press="handleWizardCancel"></Button>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</core:FragmentDefinition>

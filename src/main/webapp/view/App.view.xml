@@ -1,0 +1,166 @@
+<core:View
+	heigth="100%"
+	xmlns:core="sap.ui.core" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m"
+	controllerName="sap.ui.fieldglass.jobposting.controller.App" 
+	xmlns:f="sap.ui.layout.form"
+	xmlns:l="sap.ui.layout"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<NavContainer id="wizardNavContainer">
+		<pages>
+			<Page id="wizardContentPage" title="Fieldglass Job Posting">
+				<content>
+					<Wizard id="CreateJobPostingWizard" complete="wizardCompleteHandler">
+						<WizardStep id="jobPostingFirstStep" 
+							title="Job Posting"
+							activate="firstStepActivate">
+							<f:SimpleForm editable="true" layout="ResponsiveLayout">
+								<Label text="Is Transaction"/>
+								<CheckBox id="transaction" selected="{/transaction}"/>
+								<Label text="Approval Required"/>
+								<CheckBox id="approvalRequired" selected="{/approvalRequired}" />
+								<Label text="Send Notification"/>
+								<CheckBox id="sendNotification" selected="{/sendNotification}"/>
+								<Label text="Language" required="true"/>
+								<Input id="language" value="{/language}" 
+									valueStateText="Language can contain only characters and parentheses" liveChange="validateLanguageInput"/>
+								<Label text="Number Format"/>
+								<Input id="numberFormat" value="{/numberFormat}" liveChange="validateNumberFormat"
+									valueStateText="Enter number format e.g. #,##9.99 (Example: 1,234,567.99)"/>
+							</f:SimpleForm>
+						</WizardStep>
+						
+						<WizardStep id="jobPostingSecondStep" title="Job Posting Comments" validated="true">
+							<f:SimpleForm editable="true" layout="ResponsiveLayout">
+								<Label text="Creator Username"/>
+								<Input id="creatorUsername" value="{/comments/creatorUsername}"/>
+								
+								<Label text="Template Name"/>
+								<Input id="templateName" value="{/comments/templateName}"/>
+								
+								<Label text="Buyer Reference"/>
+								<Input id="buyerReference" value="{/comments/buyerReference}"/>
+							</f:SimpleForm>
+						</WizardStep>
+						<WizardStep id="jobPostingThirdStep" title="Job Details" activate="thirdStepActivate">
+							<f:SimpleForm editable="true" layout="ResponsiveLayout">
+
+								<Label text="Title/Number Of Positions" required="true" />
+								<Input id="title" value="{/comments/title}" placeholder="Title" 
+									valueStateText="Title can contain only characters" liveChange="validateTitle" />
+								<Input id="numberOfPositions" value="{/comments/numberOfPositions}" type="Number"
+									placeholder="Number Of Positions" valueStateText="Enter a number" liveChange="validateThirdStepNumber"/>
+								
+								<Label text="Job Description" />
+								<Input id="jobDescription" value="{/comments/jobDescription}"/>
+								
+								<Label text="Period" />
+								<Input id="startDate" value="{/comments/startDate}" type="Date" liveChange="validatePeriod" 
+									placeholder="Start Date" valueStateText="Start Date must be before the End Date"/>
+						 		<Input id="endDate" value="{/comments/endDate}" type = "Date" liveChange="validatePeriod" 
+						 			placeholder="End Date" valueStateText="Start Date must be before the End Date"/>
+						 		
+								<Label text="Hours Per Week/Day" required="true"/>
+								<Input id="hoursPerWeek" value="{/comments/hoursPerWeek}" type="Number" placeholder="Hours Per Week"
+									valueStateText="Enter a number" liveChange="validateThirdStepNumber"/>
+								<Input id="hoursPerDay" value="{/comments/hoursPerDay}" type="Number" placeholder="Hours Per Day"
+									valueStateText="Enter a number" liveChange="validateThirdStepNumber"/>
+								
+								<Label text="Travel Time" />
+								<Input id="travelTime" value="{/comments/travelTime}"/>
+								
+								<Label text="Owner Username" />
+								<Input id="ownerUsername" value="{/comments/ownerUsername}"/>
+								
+								<Label text="Coordinator Username" />
+								<Input id="coordinatorUsername" value="{/comments/coordinatorUsername}"/>
+								
+								<Label text="Distributor Username" />
+								<Input id="distributorUsername" value="{/comments/distributorUsername}"/>
+								
+								<Label text="Site Code/Location Code" />
+								<Input id="siteCode" value="{/comments/SiteCode}" placeholder="Site Code"/>
+								<Input id="locationCode" value="{/comments/siteCode}" placeholder="Location Code"/>
+								
+								<Label text="Bussiness Unit Code/Cost Center Code" />
+								<Input id="bussinessUnitCode" value="{/comments/bussinessUnitCode}" placeholder="Bussiness Unit Code"/>
+								<Input id="costCenterCode" value="{/comments/costCenterCode}" placeholder="Cost Center Code"/>
+								
+								<Label text="Address" />
+								<Input id="address1" value="{/comments/address1}"/>
+								
+								<Label text="Address2" />
+								<Input id="address2" value="{/comments/address2}"/>
+								
+								<Label text="City/Postal Code" />
+								<Input id="city" value="{/comments/city}" placeholder="City"/>
+								<Input id="postalCode" value="{/comments/postalCode}" placeholder="Postal Code"/>
+								
+								<Label text="Country/State or Province"/>
+								<Input id="country" value="{/comments/country}" placeholder="Country"/>
+								<Input id="stateOrProvince" value="{/comments/stateOrProvince}" placeholder="State/Province"/>
+							</f:SimpleForm>
+						</WizardStep>
+						
+						<WizardStep id="jobPostingLastStep" title="Additional Details">
+							<f:SimpleForm editable="true" layout="ResponsiveLayout">
+								<Label text="Currency"/>
+								<Input id="currency" value="{/comments/currency}"/>
+								
+								<Label text="[Min/Max] ST/Hr" />
+								<Input id="minStHr" value="{/comments/minStHr}" placeholder="Min ST/Hr" 
+									liveChange="validateStHr" valueStateText="Min St/Hr should be smaller than Max St/Hr" type="Number"/>
+								<Input id="maxStHr" value="{/comments/maxStHr}" placeholder="Max ST/Hr"
+									liveChange="validateStHr" valueStateText="Min St/Hr should be smaller than Max St/Hr" type="Number"/>
+								
+								<Label text="Estimated Expense Percent/Additional Spend Percent"/>
+								<Input id="estimatedExpensePercent" value="{/comments/estimatedExpensePercent}" 
+									placeholder="Estimated Expense Percent"/>
+								<Input id="estimateAdditionalSpendPercent" value="{/comments/estimateAdditionalSpendPercent}" 
+									placeholder="Estimate Additional Spend Percent"/>
+								
+								<Label text="Time Sheet Frequency"/>
+								<Input id="timeSheetFrequency" value="{/comments/timeSheetFrequency}"/>
+								
+								<Label text="Start Day Of Week"/>
+ 								<Select width="100%" id="startDayOfWeek" selectedKey="{/comments/startDayOfWeek}">
+											<items>
+												<core:Item text="Monday" key="Monday"/>
+												<core:Item text="Tuesday" key="Tuesday"/>
+												<core:Item text="Wednesday" key="Wednesday"/>
+												<core:Item text="Thursday" key="Thursday"/>
+												<core:Item text="Friday" key="Friday"/>
+												<core:Item text="Saturday" key="Saturday"/>
+												<core:Item text="Sunday" key="Sunday"/>
+											</items>
+										</Select>
+ 								
+								<Label text="Respond By Date"/>
+								<Input id="respondByDate" value="{/comments/respondByDate}" type = "Date"/>
+								
+								<Label text="Maximum Submission"/>
+								<Input id="maximumSubmission" value="{/comments/maximumSubmission}"/>
+								
+								<Label text="Flat Adjustments"/>
+								<Input id="flatAdjustments" value="{/comments/flatAdjustments}"/>
+								
+								<Label text="Comments"/>
+								<Input id="comments" value="{/comments/comments}"/>
+								
+								<Label text="JobSeeker Rate Can Be Increased"/>
+								<CheckBox id="jobSeekerRateCanBeIncreased" value="{/comments/jobSeekerRateCanBeIncreased}"/>
+								
+								<Label text="Site Tax"/>
+								<Input id="siteTax" value="{/comments/siteTax}"/>
+								
+								<Label text="Suppliers" />
+								<Input id="suppliers" value="{/comments/suppliers}"/>
+							</f:SimpleForm>
+						</WizardStep>
+					</Wizard>
+				</content>
+			</Page>
+		</pages>
+	</NavContainer>
+</core:View>
