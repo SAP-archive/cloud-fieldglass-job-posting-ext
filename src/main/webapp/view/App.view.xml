@@ -1,3 +1,4 @@
+<!DOCTYPE xml>
 <core:View
 	heigth="100%"
 	xmlns:core="sap.ui.core" 
@@ -15,7 +16,7 @@
 						<WizardStep id="jobPostingFirstStep" 
 							title="Job Posting"
 							activate="firstStepActivate">
-							<f:SimpleForm editable="true" layout="ResponsiveLayout">
+							<f:SimpleForm editable="true" layout="ResponsiveGridLayout">
 								<Label text="Is Transaction"/>
 								<CheckBox id="transaction" selected="{/transaction}"/>
 								<Label text="Approval Required"/>
@@ -32,7 +33,7 @@
 						</WizardStep>
 						
 						<WizardStep id="jobPostingSecondStep" title="Job Posting Comments" validated="true">
-							<f:SimpleForm editable="true" layout="ResponsiveLayout">
+							<f:SimpleForm editable="true" layout="ResponsiveGridLayout">
 								<Label text="Creator Username"/>
 								<Input id="creatorUsername" value="{/comments/creatorUsername}"/>
 								
@@ -44,7 +45,7 @@
 							</f:SimpleForm>
 						</WizardStep>
 						<WizardStep id="jobPostingThirdStep" title="Job Details" activate="thirdStepActivate">
-							<f:SimpleForm editable="true" layout="ResponsiveLayout">
+							<f:SimpleForm editable="true" layout="ResponsiveGridLayout">
 
 								<Label text="Title/Number Of Positions" required="true" />
 								<Input id="title" value="{/comments/title}" placeholder="Title" 
@@ -104,7 +105,7 @@
 						</WizardStep>
 						
 						<WizardStep id="jobPostingLastStep" title="Additional Details">
-							<f:SimpleForm editable="true" layout="ResponsiveLayout">
+							<f:SimpleForm editable="true" layout="ResponsiveGridLayout">
 								<Label text="Currency"/>
 								<Input id="currency" value="{/comments/currency}"/>
 								

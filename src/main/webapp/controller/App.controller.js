@@ -101,7 +101,8 @@ sap.ui.define([
 		},
 		
 		reloadAll : function () {
-			this.model = new JSONModel(this.sample);
+			this.model = new JSONModel();
+			this.model.setData($.extend(true, {}, this.sample));
 			this.getView().setModel(this.model);
 			this._handleNavigationToStep(0);
 			this._wizard.discardProgress(this._wizard.getSteps()[0]);

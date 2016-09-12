@@ -14,6 +14,7 @@
 		</script>
 
 		<script>
+				sap.ui.getCore().getConfiguration().setLanguage("en_US");
 				sap.ui.localResources("job-posting-wizard");
 				var app = new sap.m.App({initialPage:"jobPostingWizard"});
 				var page = sap.ui.view({
